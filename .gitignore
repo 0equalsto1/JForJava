@@ -41,3 +41,4 @@ bin/
 _out/production/StringPoolAndIntern
 .idea
 /.idea/
+/J4rJava.iml
