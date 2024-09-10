@@ -1,0 +1,43 @@
+### IntelliJ IDEA ###
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+/.idea/codeStyles/codeStyleConfig.xml
+/JforJava.iml
+/JML/JML.iml
+/.idea/libraries/junit_jupiter.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/libraries/openjdk_jol_core.xml
+/.idea/codeStyles/Project.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/StringPoolAndIntern/StringPoolAndIntern.iml
+/.idea/vcs.xml
+_out/production/StringPoolAndIntern
+.idea
+/.idea/

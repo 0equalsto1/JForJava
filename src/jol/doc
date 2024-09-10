@@ -1,0 +1,23 @@
+https://github.com/openjdk/jdk21u/blob/e208d9aa1f185c11734a07db399bab0be77ef15f/src/hotspot/share/oops/oop.hpp#L47
+https://github.com/openjdk/jdk21u/blob/master/src/hotspot/share/oops/markWord.hpp#L71
+https://github.com/openjdk/jdk21u/blob/master/src/hotspot/share/oops/klass.hpp
+https://github.com/openjdk/jdk21u/tree/master/src/hotspot/share/oops
+https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html
+https://github.com/openjdk/jol
+https://github.com/openjdk/jol/tree/master/jol-samples/src/main/java/org/openjdk/jol/samples
+https://shipilev.net/jvm/objects-inside-out/
+
+Project Lilliput:
+https://openjdk.org/jeps/450
+https://wiki.openjdk.org/display/lilliput
+
+list of all -XX JVM options:
+-XX:+PrintFlagsFinal
+
+https://docs.oracle.com/en/java/javase/21/docs/specs/man/java.html
+-XX:ObjectAlignmentInBytes=alignment
+
+Enables or disable the use of compressed pointers (object references represented as 32 bit offsets instead of 64-bit pointers) for optimized 64-bit performance with Java heap sizes less than 32gb.
+-XX:-UseCompressedOops (disable)  -XX:+UseCompressedOops enable
+
+HotspotUnsafe.toNativeAddress | toJvmAddress
