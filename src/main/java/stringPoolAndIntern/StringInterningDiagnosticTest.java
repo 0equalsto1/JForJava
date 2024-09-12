@@ -18,7 +18,7 @@ public class StringInterningDiagnosticTest {
 
     @BeforeAll
     static void setUp() throws ClassNotFoundException {
-        Class.forName("JavaLogo");
+        Class.forName("common.JavaLogo");
         String bash = "C:/Program Files/Git/bin/bash.exe";
         long pid = getPid();
         System.out.println("pid : " + pid);
