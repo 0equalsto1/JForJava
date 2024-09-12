@@ -11,22 +11,12 @@ import java.util.Random;
 
 public class StringInterningDiagnosticTest {
     public static final Random rand = new Random();
-    public static String STRING_TABLE_STATISTICS = "jcmd \"%s\" VM.stringtable|grep -m 1 'Number of literals'";
-    public static String STRING_TABLE_KEY_VALUE = "jcmd \"%s\" VM.stringtable -verbose|grep 'localString1'";
-    public static String[] statisticsCmd;
-    public static String[] printKeyValueCmd;
-
     @BeforeAll
     static void setUp() throws ClassNotFoundException {
         Class.forName("common.JavaLogo");
         String bash = "C:/Program Files/Git/bin/bash.exe";
         long pid = getPid();
         System.out.println("pid : " + pid);
-        STRING_TABLE_STATISTICS = String.format(STRING_TABLE_STATISTICS, pid);
-        STRING_TABLE_KEY_VALUE = String.format(STRING_TABLE_KEY_VALUE, pid);
-        String option = "-c";//It tells the shell to read and execute the command(s) from the string that follows, rather than from a script file or interactive input.
-        statisticsCmd = new String[]{bash, option, STRING_TABLE_STATISTICS};
-        printKeyValueCmd = new String[]{bash, option, STRING_TABLE_KEY_VALUE};
     }
 
     @Test
@@ -42,13 +32,10 @@ public class StringInterningDiagnosticTest {
     }
 
     @Test
-    public void dynamicStringLiteralWillNotAddedToPoolAutomatically1() {
-        jcmdUtility(statisticsCmd);
-        jcmdUtility(printKeyValueCmd);
+    public void dynamicStringLiteralWillNotAddedToPoolAutomatically() {
+        System.out.println("----------dynamicStringLiteralWillNotAddedToPoolAutomatically--------------");
         String literal = "localString1";
-        jcmdUtility(printKeyValueCmd);
         literal = "localString" + rand.nextInt(2, 3);
-        jcmdUtility(printKeyValueCmd);
     }
 
     @Test
