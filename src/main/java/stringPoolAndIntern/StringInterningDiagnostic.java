@@ -2,18 +2,22 @@ package stringPoolAndIntern;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Random;
 import java.util.Scanner;
 
 public class StringInterningDiagnostic {
-    public static final Scanner scanner = new Scanner(System.in);
-        public static String STRING_TABLE_STATISTICS = "jcmd %s VM.stringtable|grep -m 1 '%s'";
-    public static String STRING_TABLE_KEY_VALUE = "jcmd %s VM.stringtable -verbose|grep '%s'";
-    public static String[] statisticsCmd;
-    public static String[] printKeyValueCmd;
-    public static long pid;
+    static final Scanner scanner = new Scanner(System.in);
+    static String STRING_TABLE_STATISTICS = "jcmd %s VM.stringtable|grep -m 1 '%s'";
+    static String STRING_TABLE_KEY_VALUE = "jcmd %s VM.stringtable -verbose|grep '%s'";
+    static String[] statisticsCmd;
+    static String[] printKeyValueCmd;
+    static long pid;
+    static String NO = Character.toString(0x274C);
+    static String YES = Character.toString(0x2705);
 
     //It tells the shell to read and execute the command(s) from the string that follows, rather than from a script file or interactive input.
     public static final String OPTION = "-c";
+    public static final String emoji = "-c";
 
     public static final String BASH = "C:/Program Files/Git/bin/bash.exe";
 
@@ -28,6 +32,8 @@ public class StringInterningDiagnostic {
             throw new RuntimeException(e);
         }
     }
+
+    public static final Random rand = new Random();
 
     public static void main(String[] args) {
         externalSourcesLiteralWillNotAddedToPoolAutomatically();
@@ -51,8 +57,8 @@ public class StringInterningDiagnostic {
     }
 
     private static void checkKeyValueInStringPool(String literal) {
-        if (!jcmdUtility(printKeyValueCmd))
-            System.out.println(literal + " not in string pool");
+        boolean isExist = jcmdUtility(printKeyValueCmd);
+        System.out.println("[" + literal + "]" + " in string pool ->>> " + (isExist ? YES : NO));
     }
 
     private static void setCommand(String literal) {
