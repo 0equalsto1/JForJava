@@ -42,3 +42,4 @@ _out/production/StringPoolAndIntern
 .idea
 /.idea/
 /J4rJava.iml
+**/experiment/
