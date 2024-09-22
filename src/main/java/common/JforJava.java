@@ -1,16 +1,14 @@
-package jol;
-
-import org.openjdk.jol.vm.VM;
+package common;
 
 import java.util.Random;
 
-public class ForJavaLove {
+public class JforJava {
     static int tree;
-    static String treeEmoji;
+    static String treeLine;
+
     static {
         tree = 0x1F333;
-        treeEmoji = Character.toString(tree).repeat(51);
-        System.setProperty("jdk.attach.allowAttachSelf", "true");
+        treeLine = Character.toString(tree).repeat(51);
         Random random = new Random();
         int nextInt = random.nextInt(10);
         if (nextInt < 4) {
@@ -32,12 +30,10 @@ public class ForJavaLove {
                     \\/_____/   \\/_/\\/_/   \\/_/      \\/_/\\/_/\s""");
         }
 
-        System.out.println(VM.current().details());
         treeLine();
     }
 
-    private static void treeLine() {
-        System.out.println(treeEmoji);
+    public static void treeLine() {
+        System.out.println(treeLine);
     }
 }
-

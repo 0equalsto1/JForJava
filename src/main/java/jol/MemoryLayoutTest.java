@@ -1,5 +1,6 @@
 package jol;
 
+import common.JforJava;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openjdk.jol.info.ClassLayout;
@@ -11,15 +12,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MemoryLayoutTest {
-//    static int ele = 0x1F9A3, poo = 0x1F4A8;
-    //static String elepooEmoji = (Character.toString(ele) + Character.toString(poo)).repeat(25);
-    static int tree = 0x1F333;
-    static String treeEmoji = Character.toString(tree).repeat(51);
+    /* //static int ele = 0x1F9A3, poo = 0x1F4A8;
+     //static String elepooEmoji = (Character.toString(ele) + Character.toString(poo)).repeat(25);
+     static int tree = 0x1F333;
+     static String treeEmoji = Character.toString(tree).repeat(51);*/
+    static VirtualMachine vm;
 
     @BeforeAll
     static void setUp() throws ClassNotFoundException {
-        Class.forName("jol.ForJavaLove");
+        Class.forName("common.JforJava");
         vm = VM.current();
+        System.out.println(vm.details());
+        JforJava.treeLine();
     }
 
     static class MyClass {
@@ -37,7 +41,6 @@ public class MemoryLayoutTest {
     byte[] byteArray = {1};
     Boolean b = true;
     Object[] args = {integer, mi, intArray, byteArray, b};
-    static VirtualMachine vm;
 
     @Test
     void sizeOf() {
@@ -51,6 +54,21 @@ public class MemoryLayoutTest {
         System.out.println(ClassLayout.parseClass(MyClass.class).toPrintable());
     }
 
+    @Test
+    void stringSizeAndLayout() {
+        System.out.println(ClassLayout.parseClass(String.class).toPrintable());
+//        String abc = "abc";
+        String abc = new String("abc");
+        System.out.println(ClassLayout.parseInstance(abc).toPrintable());
+//        System.out.println(abc.hashCode());
+        System.out.println(vm.sizeOf(abc));
+    }
+
+    @Test
+    void layoutHashMap() {
+        System.out.println(ClassLayout.parseClass(HashMap.class).toPrintable());
+    }
+
 
     @Test
     void hashT() {
@@ -62,13 +80,13 @@ public class MemoryLayoutTest {
     @Test
     void showMemoryLayoutJ() {
         System.out.println(ClassLayout.parseInstance(integer).toPrintable());
-        treeLine();
+        JforJava.treeLine();
         System.out.println(ClassLayout.parseInstance(intArray).toPrintable());
-        treeLine();
+        JforJava.treeLine();
         System.out.println(ClassLayout.parseInstance(byteArray).toPrintable());
-        treeLine();
+        JforJava.treeLine();
         System.out.println(ClassLayout.parseClass(MyClass.class).toPrintable());
-        treeLine();
+        JforJava.treeLine();
         System.out.println(ClassLayout.parseClass(Object.class).toPrintable());
     }
 
@@ -79,7 +97,7 @@ public class MemoryLayoutTest {
         Map<Object, Object> emptyMap = Collections.emptyMap();
         System.out.println("size of " + emptyMap.getClass().getSimpleName() + " : " + vm.sizeOf(emptyMap));
         System.out.println(ClassLayout.parseInstance(emptyMap).toPrintable());
-        treeLine();
+        JforJava.treeLine();
         System.out.println(ClassLayout.parseInstance(map).toPrintable());
 
     }
@@ -89,7 +107,7 @@ public class MemoryLayoutTest {
         System.out.println("actual address : " + vm.addressOf(intArray));
     }
 
-    private static void treeLine() {
-        System.out.println(treeEmoji);
-    }
+//    private static void treeLine() {
+//        System.out.println(treeEmoji);
+//    }
 }

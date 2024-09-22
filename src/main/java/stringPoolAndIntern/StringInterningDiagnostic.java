@@ -23,7 +23,7 @@ public class StringInterningDiagnostic {
 
     static {
         try {
-            Class.forName("common.JavaLogo");
+            Class.forName("common.JforJava");
             pid = getPid();
             System.out.println("pid : " + pid);
             STRING_TABLE_STATISTICS = String.format(STRING_TABLE_STATISTICS, pid, "Number of literals");
