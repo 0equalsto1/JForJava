@@ -1,0 +1,90 @@
+D:\JDK\jdk-23\bin\java.exe -Dvisualvm.id=981465060750300 -XX:+DisableExplicitGC -Djdk.attach.allowAttachSelf -XX:+EnableDynamicAgentLoading "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\lib\idea_rt.jar=52559:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\Code\JForJava\target\classes;C:\Users\dangw\.m2\repository\org\openjdk\jol\jol-core\0.17\jol-core-0.17.jar;C:\Users\dangw\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\dangw\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\dangw\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\dangw\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\dangw\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\dangw\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\dangw\.m2\repository\org\openjdk\jmh\jmh-core\1.37\jmh-core-1.37.jar;C:\Users\dangw\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\dangw\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\dangw\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\1.37\jmh-generator-annprocess-1.37.jar powerOfTwo.ModuloVsBitwiseAndBenchmark
+# JMH version: 1.37
+# VM version: JDK 23, OpenJDK 64-Bit Server VM, 23+37-2369
+# VM invoker: D:\JDK\jdk-23\bin\java.exe
+# VM options: -Dvisualvm.id=981465060750300 -XX:+DisableExplicitGC -Djdk.attach.allowAttachSelf -XX:+EnableDynamicAgentLoading -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\lib\idea_rt.jar=52559:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: powerOfTwo.ModuloVsBitwiseAndBenchmark.testBitwiseAnd
+# Parameters: (cap = 128, hash = 1405711102)
+
+# Run progress: 0.00% complete, ETA 00:00:40
+# Fork: 1 of 1
+# Warmup Iteration   1: 0.815 ns/op
+# Warmup Iteration   2: 0.783 ns/op
+# Warmup Iteration   3: 0.810 ns/op
+# Warmup Iteration   4: 0.788 ns/op
+# Warmup Iteration   5: 0.792 ns/op
+Iteration   1: 0.847 ns/op
+Iteration   2: 1.030 ns/op
+Iteration   3: 1.037 ns/op
+Iteration   4: 1.014 ns/op
+Iteration   5: Final count of modCount : 1
+Final count of bitWiseCount : 22821640938
+1.002 ns/op
+
+
+Result "powerOfTwo.ModuloVsBitwiseAndBenchmark.testBitwiseAnd":
+  0.986 �(99.9%) 0.305 ns/op [Average]
+  (min, avg, max) = (0.847, 0.986, 1.037), stdev = 0.079
+  CI (99.9%): [0.681, 1.290] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 23, OpenJDK 64-Bit Server VM, 23+37-2369
+# VM invoker: D:\JDK\jdk-23\bin\java.exe
+# VM options: -Dvisualvm.id=981465060750300 -XX:+DisableExplicitGC -Djdk.attach.allowAttachSelf -XX:+EnableDynamicAgentLoading -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\lib\idea_rt.jar=52559:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2024.2.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 5 iterations, 2 s each
+# Measurement: 5 iterations, 2 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: powerOfTwo.ModuloVsBitwiseAndBenchmark.testModulo
+# Parameters: (cap = 128, hash = 1405711102)
+
+# Run progress: 50.00% complete, ETA 00:00:21
+# Fork: 1 of 1
+# Warmup Iteration   1: 1.854 ns/op
+# Warmup Iteration   2: 1.812 ns/op
+# Warmup Iteration   3: 1.808 ns/op
+# Warmup Iteration   4: 1.794 ns/op
+# Warmup Iteration   5: 1.794 ns/op
+Iteration   1: 1.794 ns/op
+Iteration   2: 1.788 ns/op
+Iteration   3: 1.772 ns/op
+Iteration   4: 1.744 ns/op
+Iteration   5: Final count of modCount : 11197139351
+Final count of bitWiseCount : 1
+1.793 ns/op
+
+
+Result "powerOfTwo.ModuloVsBitwiseAndBenchmark.testModulo":
+  1.778 �(99.9%) 0.081 ns/op [Average]
+  (min, avg, max) = (1.744, 1.778, 1.794), stdev = 0.021
+  CI (99.9%): [1.697, 1.859] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:42
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                              (cap)      (hash)  Mode  Cnt  Score   Error  Units
+powerOfTwo.ModuloVsBitwiseAndBenchmark.testBitwiseAnd    128  1405711102  avgt    5  0.986 � 0.305  ns/op
+powerOfTwo.ModuloVsBitwiseAndBenchmark.testModulo        128  1405711102  avgt    5  1.778 � 0.081  ns/op
+
+Process finished with exit code 0
